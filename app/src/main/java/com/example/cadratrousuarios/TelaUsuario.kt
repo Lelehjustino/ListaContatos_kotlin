@@ -1,0 +1,76 @@
+package com.example.cadratrousuarios
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.cadratrousuarios.ui.theme.CadratroUsuariosTheme
+
+class TelaUsuario : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            CadratroUsuariosTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    telaUsuario(
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun telaUsuario(modifier: Modifier = Modifier) {
+    Surface(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Column() {
+            val context = LocalContext.current
+            val nome = intent.getStringExtra("nome")
+            val email =
+            val telefone =
+            // Texto nome
+            Text(
+                nome
+            )
+
+            // Texto email
+            Text(
+                email
+            )
+
+            // Texto telefone
+            Text(
+                telefone
+            )
+
+            Button(
+                onClick = {
+                    val intent = Intent(context, TelaCadastro :: class.java)
+                    context.startActivity(intent)
+                }
+            ) {
+                Text(
+                    "Voltar"
+                )
+            }
+        }
+    }
+}
