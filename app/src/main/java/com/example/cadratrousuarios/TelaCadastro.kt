@@ -128,7 +128,9 @@ fun telaCadastro(
                             .clickable {
                                 // navegar
                                 val intent = Intent(context, TelaUsuario :: class.java)
-                                intent.putExtra(usuario.nome, usuario.email, usuario.telefone)
+                                intent.putExtra("nome", usuario.nome)
+                                intent.putExtra("email", usuario.email)
+                                intent.putExtra("telefone", usuario.telefone)
                                 context.startActivity(intent)
                             }
                     ) {

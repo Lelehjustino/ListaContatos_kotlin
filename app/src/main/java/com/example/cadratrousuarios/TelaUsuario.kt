@@ -25,41 +25,42 @@ class TelaUsuario : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CadratroUsuariosTheme {
+
+                val nome = intent.getStringExtra("nome")
+                val email = intent.getStringExtra("email")
+                val telefone = intent.getStringExtra("telefone")
+
+
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     telaUsuario(
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding),
+                        nome,
+                        email,
+                        telefone
                     )
                 }
             }
         }
     }
 }
-
-@Preview(showBackground = true)
 @Composable
-fun telaUsuario(modifier: Modifier = Modifier) {
+fun telaUsuario(
+    modifier: Modifier = Modifier,
+    nome: String?,
+    email: String?,
+    telefone: String?
+) {
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
         Column() {
             val context = LocalContext.current
-            val nome = intent.getStringExtra("nome")
-            val email =
-            val telefone =
-            // Texto nome
-            Text(
-                nome
-            )
 
-            // Texto email
-            Text(
-                email
-            )
+            Text("Nome: $nome")
 
-            // Texto telefone
-            Text(
-                telefone
-            )
+            Text("Email: $email")
+
+            Text("Telefone: $telefone")
 
             Button(
                 onClick = {
