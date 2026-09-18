@@ -122,17 +122,14 @@ fun telaCadastro(
                 items(Usuarios.listaUsuariosGlobal) { usuario ->
 
                     Card(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp)
-                            .clickable {
-                                // navegar
-                                val intent = Intent(context, TelaUsuario :: class.java)
-                                intent.putExtra("nome", usuario.nome)
-                                intent.putExtra("email", usuario.email)
-                                intent.putExtra("telefone", usuario.telefone)
-                                context.startActivity(intent)
-                            }
+                        modifier = Modifier.fillMaxWidth().padding(8.dp).clickable {
+                            // navegar
+                            val intent = Intent(context, TelaUsuario :: class.java)
+                            intent.putExtra("nome", usuario.nome)
+                            intent.putExtra("email", usuario.email)
+                            intent.putExtra("telefone", usuario.telefone)
+                            context.startActivity(intent)
+                        }
                     ) {
                         Column(
                             modifier = Modifier.padding(16.dp)
